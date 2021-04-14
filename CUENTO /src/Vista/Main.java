@@ -58,6 +58,11 @@ public class Main extends PApplet {
 			break;
 		case 3:
 			image (FONDO, 0,0);
+			image (ARBOLES, 0,0);
+			image (CAPERUCITA, 0,0);
+			image (LOBO, 0,0);
+			image (HONGO, 0,0);
+			image (CANASTA, 0,0);
 
 			break;
 
@@ -75,11 +80,23 @@ public class Main extends PApplet {
 
 	public void mousePressed () {
 		
+		println (mouseX, mouseY);
+		
 		switch (screen) {
 		case 1:
-		
+			
+			if (mouseX > 740 && mouseX < 981
+					&& mouseY > 390 && mouseY < 429) //CONTINUE
+				screen = 2;
+			
+			
 			break;
 		case 2:
+			
+		
+			if (mouseX > 834 && mouseX < 1076
+					&& mouseY > 602 && mouseY < 646) //CONTINUE
+				screen = 3;
 		
 
 			break;
