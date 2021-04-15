@@ -75,23 +75,45 @@ public class Main extends PApplet {
 
 			break;
 		case 3:
-			image (FONDO, 0,0);
-			image (ARBOLES, 0,0);
-			image (CAPERUCITA, 0,0);
-			image (LOBO, 0,0);
-			image (HONGO, 0,0);
-			image (CANASTA, 0,0);
-			image (PIEDRA, 0,0);
 
+			image(FONDO,0,0);
+			image(ARBOLES,0,0);
+			if(caperucitaClic)
+				tint(255,126);
+			else
+				noTint();
+			image(CAPERUCITA,0,0);
+			if(loboClic)
+				tint(255,126);
+			else
+				noTint();
+			image(LOBO,0,0);
+			if(hongoClic)
+				tint(255,126);
+			else
+				noTint();
+			image(HONGO,0,0);
+			if(canastaClic)
+				tint(255,126);
+			else
+				noTint();
+			image(CANASTA,0,0);
+			if(piedraClic)
+				tint(255,126);
+			else
+				noTint();
+			image(PIEDRA,0,0);
 			break;
 
 		case 4:
 			image (ULTIMAPANTALLA, 0,0);
-			
+
 			break;
 
-			default:
+		default:
 			break;
+
+
 		}		
 
 
@@ -123,9 +145,9 @@ public class Main extends PApplet {
 				screen = 1;
 
 			break;
-			
-			
-			
+
+
+
 
 		case 3:
 
@@ -138,41 +160,41 @@ public class Main extends PApplet {
 			{
 				caperucitaClic=true;
 				controller.selectItem ("Little Red Riding Hood");
-				
 
-				
-				
-				
+
+
+
+
 			}
 			if (mouseX > 422 && mouseX < 565
 					&& mouseY > 97 && mouseY < 261) // lobo
-				{
+			{
 				loboClic= true;
 				controller.selectItem ("wolf");
-				}
+			}
 
 			if (mouseX > 640 && mouseX < 736
 					&& mouseY > 561 && mouseY < 686) // canasta
-				{
+			{
 				canastaClic= true;
 				controller.selectItem ("basket");
-				}
+			}
 
 			if (mouseX > 830 && mouseX < 984
 					&& mouseY > 580 && mouseY < 685) // hongo
-				{
+			{
 				hongoClic= true;
 				controller.selectItem ("fungus");
-				}
+			}
 
 			if (mouseX > 654 && mouseX < 801
 					&& mouseY > 367 && mouseY < 472) // piedra
-				{
+			{
 				piedraClic= true;
 				controller.selectItem ("rocks");
-				}
+			}
 			if (piedraClic && hongoClic && canastaClic && caperucitaClic && loboClic) {
-				
+
 				screen=4;
 				controller.saveText();
 			}
@@ -180,7 +202,7 @@ public class Main extends PApplet {
 
 
 
-	
+
 
 		case 4:
 
@@ -196,14 +218,14 @@ public class Main extends PApplet {
 				piedraClic= false;
 
 			}
-			
+
 
 			break;
-		
-		
-			
 
-			
+
+
+
+
 
 
 
