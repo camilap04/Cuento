@@ -126,8 +126,8 @@ public class Main extends PApplet {
 			case 3:
 			
 			
-			if (mouseX > 26 && mouseX < 111
-					&& mouseY > 626 && mouseY < 671) // Para devolverme de la segunda pantalla a la primera
+			if (mouseX > 24 && mouseX < 112
+					&& mouseY > 626 && mouseY < 672) // Para devolverme de la segunda pantalla a la primera
 				screen = 1;
 		
 			
