@@ -1,6 +1,7 @@
 package Vista;
 
 import processing.core.PImage;
+import Controlador.Word;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -17,9 +18,13 @@ public class Main extends PApplet {
 	PImage PIEDRA;
 
 	int screen;
-	
+
 	boolean loboClic;
-	
+	boolean caperucitaClic;
+	boolean canastaClic;
+	boolean hongoClic;
+	boolean piedraClic;
+	Word controller;
 	public static void main(String[] args) {
 
 		String[] processingArgs = {"Main"};
@@ -47,6 +52,13 @@ public class Main extends PApplet {
 		ULTIMAPANTALLA = loadImage ("IMG/ULTIMAPANTALLA.png");
 		PIEDRA = loadImage ("IMG/PIEDRA.png");
 
+		controller = new Word ();
+		loboClic= false;
+		caperucitaClic= false;
+		canastaClic= false;
+		hongoClic= false;
+		piedraClic= false;
+
 		screen = 1;
 	}
 
@@ -56,8 +68,8 @@ public class Main extends PApplet {
 			image (PANTALLA1, 0,0);
 
 			break;
-			
-			
+
+
 		case 2:
 			image (PANTALLADOS, 0,0);
 
@@ -76,25 +88,9 @@ public class Main extends PApplet {
 		case 4:
 			image (ULTIMAPANTALLA, 0,0);
 			
-		case 5:
-			image (PANTALLADOS, 0,0);
-
 			break;
-			
-			
-			case 6:
-				image (PANTALLA1, 0,0);
 
-				break;
-				
-			case 7 :
-				image (PANTALLADOS, 0,0);
-
-				break;
-
-		
-
-		default:
+			default:
 			break;
 		}		
 
@@ -102,75 +98,95 @@ public class Main extends PApplet {
 	}
 
 	public void mousePressed () {
-		
+
 		println (mouseX, mouseY);
-		
+
 		switch (screen) {
 		case 1:
-			
+
 			if (mouseX > 762 && mouseX < 967
 					&& mouseY > 408 && mouseY < 449) //CONTINUE
 				screen = 2;
-			
-			
-			
-			
+
+
+
+
 			break;
 		case 2:
-			
-		
+
+
 			if (mouseX > 954 && mouseX < 1105
-					&& mouseY > 632&& mouseY < 660) //CONTINUE
+					&& mouseY > 634&& mouseY < 664) //CONTINUE
 				screen = 3;
-			
-			case 3:
-			
-			
-			if (mouseX > 24 && mouseX < 112
-					&& mouseY > 626 && mouseY < 672) // Para devolverme de la segunda pantalla a la primera
+			if (mouseX > 22 && mouseX < 117
+					&& mouseY > 624 && mouseY < 670) // Para devolverme de la segunda pantalla a la primera
 				screen = 1;
-		
-			
-			case 4:
-			
-			
-			if (mouseX > 38 && mouseX < 126
-					&& mouseY > 625 && mouseY < 668) // Para devolverme de la TERCER pantalla a la segunda
-				screen = 2;
 
 			break;
-		case 5:
-		
-			if (mouseX > 38 && mouseX < 124
-					&& mouseY > 624 && mouseY < 668) // caperucita roja
-				
-				break;
-		
-			println("Caperucita");	
 			
-	
 			
+			
+
+		case 3:
+
+
+			if (mouseX > 24 && mouseX < 108
+					&& mouseY > 626 && mouseY < 672) // Para devolverme de la segunda pantalla a la primera
+				screen = 2;
+			if (mouseX > 452 && mouseX < 591
+					&& mouseY > 393 && mouseY < 695) // caperucita roja
+				caperucitaClic=true;
 			if (mouseX > 422 && mouseX < 565
 					&& mouseY > 97 && mouseY < 261) // lobo
-				println("lobo");
-			
-			if (mouseX > 640 && mouseX < 733
-					&& mouseY > 569 && mouseY < 689) // canasta
-				println("canasta");
-			
-			if (mouseX > 848 && mouseX < 967
-					&& mouseY > 584 && mouseY < 676) // hongo
-				println("hongo");
-			
+				loboClic= true;
+
+			if (mouseX > 640 && mouseX < 736
+					&& mouseY > 561 && mouseY < 686) // canasta
+				canastaClic= true;
+
+			if (mouseX > 830 && mouseX < 984
+					&& mouseY > 580 && mouseY < 685) // hongo
+				hongoClic= true;
+
 			if (mouseX > 654 && mouseX < 801
 					&& mouseY > 367 && mouseY < 472) // piedra
-				println("Piedra");
-				break;
+				piedraClic= true;
+			if (piedraClic && hongoClic && canastaClic && caperucitaClic && loboClic) {
+				
+				screen=4;
+				controller.saveText();
+			}
+			break;
+
 
 
 	
 
+		case 4:
+
+
+			if (mouseX > 710 && mouseX < 957
+					&& mouseY > 317 && mouseY < 362) // Para devolverme de la TERCER pantalla a la segunda
+			{
+				screen = 1;
+				loboClic= false;
+				caperucitaClic= false;
+				canastaClic= false;
+				hongoClic= false;
+				piedraClic= false;
+
+			}
 			
+
+			break;
+		
+		
+			
+
+			
+
+
+
 
 		default:
 			break;
