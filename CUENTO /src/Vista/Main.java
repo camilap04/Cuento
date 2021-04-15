@@ -135,22 +135,42 @@ public class Main extends PApplet {
 				screen = 2;
 			if (mouseX > 452 && mouseX < 591
 					&& mouseY > 393 && mouseY < 695) // caperucita roja
+			{
 				caperucitaClic=true;
+				controller.selectItem ("Little Red Riding Hood");
+				
+
+				
+				
+				
+			}
 			if (mouseX > 422 && mouseX < 565
 					&& mouseY > 97 && mouseY < 261) // lobo
+				{
 				loboClic= true;
+				controller.selectItem ("wolf");
+				}
 
 			if (mouseX > 640 && mouseX < 736
 					&& mouseY > 561 && mouseY < 686) // canasta
+				{
 				canastaClic= true;
+				controller.selectItem ("basket");
+				}
 
 			if (mouseX > 830 && mouseX < 984
 					&& mouseY > 580 && mouseY < 685) // hongo
+				{
 				hongoClic= true;
+				controller.selectItem ("fungus");
+				}
 
 			if (mouseX > 654 && mouseX < 801
 					&& mouseY > 367 && mouseY < 472) // piedra
+				{
 				piedraClic= true;
+				controller.selectItem ("rocks");
+				}
 			if (piedraClic && hongoClic && canastaClic && caperucitaClic && loboClic) {
 				
 				screen=4;
@@ -166,7 +186,7 @@ public class Main extends PApplet {
 
 
 			if (mouseX > 710 && mouseX < 957
-					&& mouseY > 317 && mouseY < 362) // Para devolverme de la TERCER pantalla a la segunda
+					&& mouseY > 317 && mouseY < 362) // Para devolverme de la ULTIMA pantalla al MENU
 			{
 				screen = 1;
 				loboClic= false;
